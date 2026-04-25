@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Pengyu Wang</title>
+    <style>
+        :root {
+            --accent: #06f;
+            --muted: #dfe6eb;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html, body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08)),
+            url("../../assets/MainActivity_Background.jpeg");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.3;
+            min-height: 100vh;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.28);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(11, 18, 32, 0.06);
+        }
+
+        .nav-wrap {
+            width: min(1100px, 94%);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        nav a {
+            color: rgba(11, 18, 32, 0.78);
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 18px;
+            text-align: left;
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1100px;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Rows layout */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* First row: left first name */
+        .name-first {
+            font-weight: 800;
+            margin: 0;
+            font-size: clamp(9rem, 5vw, 10rem);
+            letter-spacing: -1px;
+            line-height: 0.95;
+            color: #fff;
+            text-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+
+            transform: translate(-48px, -18px);
+            transition: transform 220ms ease;
+        }
+
+        /* Second row: right stacked container with sentence above last name */
+        .right-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* keep items right-aligned */
+            gap: 6px;
+        }
+
+        .tag {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 2rem;
+            text-shadow: 0 6px 18px rgba(2, 6, 23, 0.32);
+        }
+
+        .name-last {
+            font-weight: 800;
+            margin: 0;
+            font-size: clamp(7.5rem, 5vw, 9.5rem);
+            letter-spacing: -1px;
+            line-height: 0.95;
+            color: #fff;
+            text-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+            transform: translateX(8px);
+        }
+
+        .muted-note {
+            margin-top: 6px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: left;
+        }
+
+        /* Responsive: stack and center on small screens */
+        @media (max-width: 640px) {
+            .nav-wrap {
+                padding: 12px 0
+            }
+
+            .hero-inner {
+                padding: 20px
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .right-stack {
+                align-items: center;
+                transform: none;
+            }
+
+            .name-first, .name-last {
+                font-size: clamp(1.8rem, 9vw, 3rem);
+                transform: none;
+            }
+
+            .tag {
+                font-size: 0.95rem;
+            }
+
+            .muted-note {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="nav-wrap">
+        <nav aria-label="Primary">
+            <a href="MainActivity.html">Home</a>
+            <a href="AboutActivity.html">About</a>
+            <a href="ExperienceActivity.html">Experience</a>
+            <a href="SkillsActivity.html">Skills</a>
+            <a href="ProjectsActivity.html">Projects</a>
+            <a href="ResumeActivity.html">Resume</a>
+            <a href="ContactActivity.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="hero" role="main">
+    <div class="hero-inner" aria-labelledby="hero-title">
+        <div class="row" role="presentation">
+            <h1 id="hero-title" class="name-first">Pengyu</h1>
+            <span aria-hidden="true"></span>
+        </div>
+
+        <div class="row" role="presentation">
+            <span aria-hidden="true"></span>
+            <div class="right-stack" aria-label="Tag and last name">
+                <p class="tag">Software Developer/Freelancer</p>
+                <h2 class="name-last">Wang</h2>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
