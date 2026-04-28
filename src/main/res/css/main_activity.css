@@ -115,6 +115,19 @@ nav a:hover {
     height: 20%;
 }
 
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.card-header svg {
+    width: 26px;
+    height: 26px;
+    color: #007aff;
+}
+
 .card {
     background-color: #ffffff;
     color: #000000;
