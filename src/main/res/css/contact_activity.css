@@ -124,6 +124,17 @@ nav a:hover {
     color: #334155;
 }
 
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.contact-link {
+    text-decoration: none;   /* removes underline */
+    color: inherit;          /* keeps original text color */
+    display: block;
+}
+
 /* Form */
 
 .contact-form-card {

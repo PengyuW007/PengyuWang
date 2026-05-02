@@ -90,6 +90,12 @@ nav a:hover {
     border-radius: 16px;
 
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    transition: 0.25s ease;
+}
+
+.resume-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
 }
 
 .download-icon {
