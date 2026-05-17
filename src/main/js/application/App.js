@@ -1,35 +1,54 @@
 import Services from "./Services.js";
+import StubDataAccess from "../persistence/DataAccessStub.js";
 
 export default class App {
     static dbName = "AutoTrack";
-    static dbPathName = "AutoTrack.db";
+    static dbPathName = "StubDatabase";
 
     static main() {
         App.startUp();
 
-        console.log("AutoTrack Web Application is running.");
+        const dao = Services.getDataAccess();
 
-        // Later, this is where your controller/UI startup logic can go.
-        // Example:
-        // LeadListController.run();
+        const leads = [];
+        dao.getLeadSequential(leads);
+
+        console.log("========== Lead List ==========");
+        leads.forEach(lead => {
+            console.log(lead.toString());
+        });
+
+        const tasks = [];
+        dao.getTaskSequential(tasks);
+
+        console.log("========== Task List ==========");
+        tasks.forEach(task => {
+            console.log(task.getTitle());
+            console.log("Completed:", task.isCompleted());
+        });
+
+        const notifications = [];
+        dao.getNotificationSequential(notifications);
+
+        console.log("========== Notification List ==========");
+        notifications.forEach(notification => {
+            console.log(notification.getTitle());
+            console.log("Lead ID:", notification.getLeadID());
+        });
+
+        App.shutDown();
     }
 
     static startUp() {
-        console.log("Starting AutoTrack Web Application...");
-
-        App.setDBPathName(App.dbPathName);
+        console.log("Starting AutoTrack Web Application with Stub DAO...");
 
         Services.initialize({
             appName: "AutoTrack Web",
             environment: "development"
         });
 
-        console.log(`Database name: ${App.dbName}`);
-        console.log(`Database path: ${App.getDBPathName()}`);
-
-        // Later, when persistence layer is ready:
-        // const dao = new DataAccessObject(App.getDBPathName());
-        // Services.createDataAccess(dao);
+        const stubDAO = new StubDataAccess();
+        Services.createDataAccess(stubDAO);
     }
 
     static shutDown() {
@@ -42,7 +61,6 @@ export default class App {
     }
 
     static setDBPathName(pathName) {
-        console.log(`Setting DB path to: ${pathName}`);
         App.dbPathName = pathName;
     }
 }
