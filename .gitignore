@@ -1,2 +1,5 @@
 *.xml
 .idea/workspace.xml.tmp
+node_modules
+jest.config.js
+package-lock.json

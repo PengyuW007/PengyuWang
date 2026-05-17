@@ -4,7 +4,7 @@ import Vehicle from "../objects/Vehicle.js";
 import Task from "../objects/Task.js";
 import Notification from "../objects/Notification.js";
 
-export default class StubDataAccess extends DataAccess {
+export default class DataAccessStub extends DataAccess {
     constructor() {
         super();
 
