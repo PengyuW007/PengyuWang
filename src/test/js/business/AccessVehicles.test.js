@@ -1,7 +1,7 @@
-import Services from "../../../src/main/js/application/Services.js";
-import DataAccessStub from "../../../src/main/js/persistence/DataAccessStub.js";
-import AccessVehicles from "../../../src/main/js/business/AccessVehicles.js";
-import Vehicle from "../../../src/main/js/objects/Vehicle.js";
+import Services from "../../../main/js/application/Services.js";
+import DataAccessStub from "../persistence/DataAccessStub.js";
+import AccessVehicles from "../../../main/js/business/AccessVehicles.js";
+import Vehicle from "../../../main/js/objects/Vehicle.js";
 
 describe("AccessVehicles Business Layer", () => {
     let accessVehicles;

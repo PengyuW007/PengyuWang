@@ -1,8 +1,8 @@
-import Services from "../../../src/main/js/application/Services.js";
-import DataAccessStub from "../../../src/main/js/persistence/DataAccessStub.js";
-import AccessLeads from "../../../src/main/js/business/AccessLeads.js";
-import AccessNotifications from "../../../src/main/js/business/AccessNotifications.js";
-import Notification from "../../../src/main/js/objects/Notification.js";
+import Services from "../../../main/js/application/Services.js";
+import DataAccessStub from "../persistence/DataAccessStub.js";
+import AccessLeads from "../../../main/js/business/AccessLeads.js";
+import AccessNotifications from "../../../main/js/business/AccessNotifications.js";
+import Notification from "../../../main/js/objects/Notification.js";
 
 describe("AccessNotifications Business Layer", () => {
     let accessLeads;

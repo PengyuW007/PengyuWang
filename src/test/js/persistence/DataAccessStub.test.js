@@ -1,6 +1,6 @@
-import DataAccessStub from "../../../src/main/js/persistence/DataAccessStub.js";
-import Lead from "../../../src/main/js/objects/Lead.js";
-import Vehicle from "../../../src/main/js/objects/Vehicle.js";
+import DataAccessStub from "./DataAccessStub.js";
+import Lead from "../../../main/js/objects/Lead.js";
+import Vehicle from "../../../main/js/objects/Vehicle.js";
 
 describe("DataAccessStub Lead CRUD", () => {
     let dao;

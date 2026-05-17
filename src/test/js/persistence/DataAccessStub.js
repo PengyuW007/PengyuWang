@@ -1,8 +1,8 @@
-import DataAccess from "./DataAccess.js";
-import Lead from "../objects/Lead.js";
-import Vehicle from "../objects/Vehicle.js";
-import Task from "../objects/Task.js";
-import Notification from "../objects/Notification.js";
+import DataAccess from "../../../main/js/persistence/DataAccess.js";
+import Lead from "../../../main/js/objects/Lead.js";
+import Vehicle from "../../../main/js/objects/Vehicle.js";
+import Task from "../../../main/js/objects/Task.js";
+import Notification from "../../../main/js/objects/Notification.js";
 
 export default class DataAccessStub extends DataAccess {
     constructor() {

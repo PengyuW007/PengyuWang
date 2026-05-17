@@ -1,7 +1,7 @@
-import Services from "../../../src/main/js/application/Services.js";
-import DataAccessStub from "../../../src/main/js/persistence/DataAccessStub.js";
-import AccessLeads from "../../../src/main/js/business/AccessLeads.js";
-import ScoringService from "../../../src/main/js/business/ScoringService.js";
+import Services from "../../../main/js/application/Services.js";
+import DataAccessStub from "../persistence/DataAccessStub.js";
+import AccessLeads from "../../../main/js/business/AccessLeads.js";
+import ScoringService from "../../../main/js/business/ScoringService.js";
 
 describe("ScoringService Business Logic", () => {
     let accessLeads;

@@ -1,5 +1,5 @@
 import Services from "./Services.js";
-import StubDataAccess from "../persistence/DataAccessStub.js";
+import DataAccessStub from "../../../test/js/persistence/DataAccessStub.js";
 
 export default class App {
     static dbName = "AutoTrack";
@@ -7,48 +7,34 @@ export default class App {
 
     static main() {
         App.startUp();
-
-        const dao = Services.getDataAccess();
-
-        const leads = [];
-        dao.getLeadSequential(leads);
-
-        console.log("========== Lead List ==========");
-        leads.forEach(lead => {
-            console.log(lead.toString());
-        });
-
-        const tasks = [];
-        dao.getTaskSequential(tasks);
-
-        console.log("========== Task List ==========");
-        tasks.forEach(task => {
-            console.log(task.getTitle());
-            console.log("Completed:", task.isCompleted());
-        });
-
-        const notifications = [];
-        dao.getNotificationSequential(notifications);
-
-        console.log("========== Notification List ==========");
-        notifications.forEach(notification => {
-            console.log(notification.getTitle());
-            console.log("Lead ID:", notification.getLeadID());
-        });
-
+        console.log("AutoTrack Web Application is running.");
         App.shutDown();
     }
 
     static startUp() {
         console.log("Starting AutoTrack Web Application with Stub DAO...");
 
+
+        const realPath = App.getDBPathName();
+        App.setDBPathName(realPath);
+
         Services.initialize({
             appName: "AutoTrack Web",
-            environment: "development"
+            environment: "development",
+            databaseName: App.dbName,
+            databasePath: App.dbPathName
         });
 
-        const stubDAO = new StubDataAccess();
+        const stubDAO = new DataAccessStub();
         Services.createDataAccess(stubDAO);
+        const dao = Services.getDataAccess();
+
+        if (dao !== null && dao !== undefined) {
+            dao.open();
+            console.log(`Data Access Object initialized successfully: ${realPath}`);
+        } else {
+            console.error("Failed to initialize Data Access Object.");
+        }
     }
 
     static shutDown() {

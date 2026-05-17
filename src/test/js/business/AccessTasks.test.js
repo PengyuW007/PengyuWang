@@ -1,8 +1,8 @@
-import Services from "../../../src/main/js/application/Services.js";
-import DataAccessStub from "../../../src/main/js/persistence/DataAccessStub.js";
-import AccessLeads from "../../../src/main/js/business/AccessLeads.js";
-import AccessTasks from "../../../src/main/js/business/AccessTasks.js";
-import Task from "../../../src/main/js/objects/Task.js";
+import Services from "../../../main/js/application/Services.js";
+import DataAccessStub from "../persistence/DataAccessStub.js";
+import AccessLeads from "../../../main/js/business/AccessLeads.js";
+import AccessTasks from "../../../main/js/business/AccessTasks.js";
+import Task from "../../../main/js/objects/Task.js";
 
 describe("AccessTasks Business Layer", () => {
     let accessLeads;
