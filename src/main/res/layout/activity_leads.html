@@ -2,9 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AutoCRM - Leads</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/leads.css">
 </head>
 <body>
 
+<aside class="side-nav">
+    <div class="brand-block">
+        <div class="brand-logo">A</div>
+        <div>
+            <div class="brand-title">AutoTrack</div>
+            <div class="brand-subtitle">Sales Console</div>
+        </div>
+    </div>
+
+    <nav class="nav-menu">
+        <a href="activity_dashboard.html" class="nav-item">Dashboard</a>
+        <a href="activity_leads.html" class="nav-item active">Leads</a>
+        <a href="activity_agenda.html" class="nav-item">Agenda</a>
+        <a href="activity_analytics.html" class="nav-item">Analytics</a>
+    </nav>
+</aside>
+
+<div class="app-shell">
+    <header class="top-app-bar">
+        <div class="app-title">All My Leads</div>
+        <div class="lead-count" id="leadCount">0 Leads</div>
+    </header>
+
+    <main class="page-container">
+        <section class="page-header">
+            <h1>All My Leads</h1>
+            <p>Manage and track your automotive sales leads</p>
+        </section>
+
+        <section class="filter-card">
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search by name, email, or phone..."
+                >
+            </div>
+
+            <div class="form-field">
+                <label for="statusFilter">Status</label>
+                <select id="statusFilter">
+                    <option value="All">All Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Lost">Lost</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="stageFilter">Stage</label>
+                <select id="stageFilter">
+                    <option value="All">All Stages</option>
+                    <option value="NEW">New</option>
+                    <option value="CONTACTED">Contacted</option>
+                    <option value="VISITED">Visited</option>
+                    <option value="TEST_DRIVE">Test Drive</option>
+                    <option value="NEGOTIATION">Negotiation</option>
+                    <option value="CLOSED">Closed</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="tradeInFilter">Trade-in Vehicle</label>
+                <select id="tradeInFilter">
+                    <option value="All">All Trade-in</option>
+                    <option value="Has Trade-in">Has Trade-in</option>
+                    <option value="No Trade-in">No Trade-in</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="scoreFilter">Score Range</label>
+                <select id="scoreFilter">
+                    <option value="All">All Scores</option>
+                    <option value="High">High: 80+</option>
+                    <option value="Medium">Medium: 50-79</option>
+                    <option value="Low">Low: Below 50</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="table-card">
+            <table class="lead-table">
+                <thead>
+                <tr>
+                    <th>Lead Status</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Vehicle Interest</th>
+                    <th>Trade-in Vehicle</th>
+                    <th>Stage</th>
+                    <th>Score</th>
+                    <th>Created At</th>
+                </tr>
+                </thead>
+                <tbody id="leadTableBody"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<div id="leadBriefModal" class="modal-overlay hidden">
+    <div class="lead-brief-card">
+        <div class="modal-header">
+            <h2>Lead Briefing</h2>
+            <button id="closeBriefBtn" class="modal-close-btn">×</button>
+        </div>
+
+        <div id="leadBriefContent" class="lead-brief-content"></div>
+
+        <div class="modal-actions">
+            <button id="modifyFromBriefBtn" class="primary-btn">Modify Lead</button>
+            <button id="closeBriefBottomBtn" class="secondary-btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<div id="notificationToast" class="notification-toast hidden"></div>
+
+<script type="module" src="../../js/presentation/LeadsActivity.js"></script>
 </body>
 </html>
