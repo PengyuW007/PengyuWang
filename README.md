@@ -32,7 +32,7 @@ src/main/
         ├── LeadsController.js
         ├── LeadDetailsController.js
         ├── AgendaController.js
-        ├── Analystics.js 
+        ├── AnalysticsActivity.js 
         └── NotificationController.js
 ```
 
