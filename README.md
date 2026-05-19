@@ -32,15 +32,27 @@ src/main/
         ├── LeadsController.js
         ├── LeadDetailsController.js
         ├── AgendaController.js
+        ├── Analystics.js 
         └── NotificationController.js
 ```
 
 ## Features
 ### Dashboard
+summary / overview / KPI page
 - Number of follow-ups due today
 - High-priority leads
 - Overdue leads
 - Active / lost lead summary
+- Top 3 urgent leads preview
+
+### Analytics
+- Lead score distribution
+- Close-deal probability
+- Conversion by stage
+- Follow-up completion rate
+- Vehicle interest trends
+- Sales pipeline insights
+- Future ML/deep learning prediction
 
 ### Lead List
 - Search
@@ -49,10 +61,12 @@ src/main/
 - Quick actions: call, email, view details
 
 ### Agenda
-- Today’s agenda
+- Today/Selected date’s agenda
 - Date switcher
-- Priority section
+- Priority queue for that date
 - General follow-up section
+- Completed / pending task state
+- Click lead to open details
 
 ### Lead Detail
 - Customer profile
