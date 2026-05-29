@@ -9,24 +9,44 @@
 </head>
 <body>
 
-<aside class="side-nav">
+<aside class="side-nav" id="sideNav">
     <div class="brand-block">
         <div class="brand-logo">A</div>
-        <div>
+
+        <div class="brand-text">
             <div class="brand-title">AutoTrack</div>
             <div class="brand-subtitle">Sales Console</div>
         </div>
+
+        <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Collapse sidebar">
+            «
+        </button>
     </div>
 
     <nav class="nav-menu">
-        <a href="activity_dashboard.html" class="nav-item">Dashboard</a>
-        <a href="activity_leads.html" class="nav-item active">Leads</a>
-        <a href="activity_agenda.html" class="nav-item">Agenda</a>
-        <a href="activity_analytics.html" class="nav-item">Analytics</a>
+        <a href="activity_dashboard.html" class="nav-item">
+            <span class="nav-icon">⌂</span>
+            <span class="nav-text">Dashboard</span>
+        </a>
+
+        <a href="activity_leads.html" class="nav-item active">
+            <span class="nav-icon">▦</span>
+            <span class="nav-text">Leads</span>
+        </a>
+
+        <a href="activity_agenda.html" class="nav-item">
+            <span class="nav-icon">▣</span>
+            <span class="nav-text">Agenda</span>
+        </a>
+
+        <a href="activity_analytics.html" class="nav-item">
+            <span class="nav-icon">◫</span>
+            <span class="nav-text">Analytics</span>
+        </a>
     </nav>
 </aside>
 
-<div class="app-shell">
+<div class="app-shell" id="appShell">
     <header class="top-app-bar">
         <div class="app-title">All My Leads</div>
         <div class="lead-count" id="leadCount">0 Leads</div>

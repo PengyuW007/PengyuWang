@@ -2,6 +2,7 @@ import Services from "../application/Services.js";
 import DataAccessStub from "../../../test/js/persistence/DataAccessStub.js";
 import AccessLeads from "../business/AccessLeads.js";
 import ScoringService from "../business/ScoringService.js";
+import Sidebar from "./components/Sidebar.js";
 
 export default class LeadsActivity {
     static accessLeads = null;
@@ -10,6 +11,7 @@ export default class LeadsActivity {
     static selectedLead = null;
 
     static initialize() {
+        Sidebar.initialize();
         LeadsActivity.initializeServices();
         LeadsActivity.bindViews();
         LeadsActivity.loadLeads();
@@ -166,10 +168,13 @@ export default class LeadsActivity {
         row.innerHTML = `
             <td>
         <div class="lead-status-indicator-wrapper">
-            <span 
-                class="lead-status-dot ${lead.getLeadStatus() ? "lead-status-active" : "lead-status-lost"}"
-                title="${lead.getLeadStatus() ? "Active Lead" : "Lost Lead"}"
-            ></span>
+            <button 
+    class="lead-status-dot-button"
+    title="Click to change lead status"
+    data-id="${lead.getLeadID()}"
+>
+    <span class="lead-status-dot ${lead.getLeadStatus() ? "lead-status-active" : "lead-status-lost"}"></span>
+</button>
             <span class="lead-status-text">
                 ${lead.getLeadStatus() ? "Active" : "Lost"}
             </span>
@@ -178,8 +183,8 @@ export default class LeadsActivity {
 
     <td>
         <div class="name-cell">
-            <button class="brief-btn" data-id="${lead.getLeadID()}" title="View lead briefing">⊙</button>
-            <span>${lead.getLeadName()}</span>
+            <button class="brief-btn" data-id="${lead.getLeadID()}" title="View lead briefing">👁</button>
+<span class="lead-name-link" data-id="${lead.getLeadID()}">${lead.getLeadName()}</span>
         </div>
     </td>
 
@@ -210,15 +215,46 @@ export default class LeadsActivity {
     <td>${LeadsActivity.formatDate(lead.getLeadCreatedAt())}</td>
         `;
 
+        row.querySelector(".lead-status-dot-button").addEventListener("click", () => {
+            LeadsActivity.toggleLeadStatus(lead);
+        });
+
         row.querySelector(".brief-btn").addEventListener("click", () => {
             LeadsActivity.showLeadBrief(lead);
         });
+
+        row.querySelector(".lead-name-link").addEventListener("click", () => {
+            LeadsActivity.openLeadDetails(lead.getLeadID());
+        });
+
+        // row.querySelector(".brief-btn").addEventListener("click", () => {
+        //     LeadsActivity.showLeadBrief(lead);
+        // });
 
         // row.querySelector(".modify-btn").addEventListener("click", () => {
         //     LeadsActivity.openLeadDetails(lead.getLeadID());
         // });
 
         LeadsActivity.leadTableBody.appendChild(row);
+    }
+
+    static toggleLeadStatus(lead) {
+
+        console.log("Before:", lead.getLeadStatus());
+
+        const newStatus = !lead.getLeadStatus();
+
+        lead.setLeadStatus(newStatus);
+
+        console.log("After:", lead.getLeadStatus());
+
+        const result = LeadsActivity.accessLeads.updateLead(lead);
+
+        console.log("Update Result:", result);
+
+        LeadsActivity.renderGroupedLeads(
+            LeadsActivity.allLeads
+        );
     }
 
     static showLeadBrief(lead) {

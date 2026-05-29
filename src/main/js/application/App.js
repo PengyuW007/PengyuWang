@@ -14,7 +14,6 @@ export default class App {
     static startUp() {
         console.log("Starting AutoTrack Web Application with Stub DAO...");
 
-
         const realPath = App.getDBPathName();
         App.setDBPathName(realPath);
 

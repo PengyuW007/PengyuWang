@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Change this title in each activity -->
+    <title>AutoTrack</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+
+    <!-- Add activity-specific css below -->
+    <!-- Example: <link rel="stylesheet" href="../css/leads.css"> -->
+</head>
+
+<body>
+
+<aside class="side-nav" id="sideNav">
+    <div class="brand-block">
+        <div class="brand-logo">A</div>
+
+        <div class="brand-text">
+            <div class="brand-title">AutoTrack</div>
+            <div class="brand-subtitle">Sales Console</div>
+        </div>
+
+        <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Collapse sidebar">
+            «
+        </button>
+    </div>
+
+    <nav class="nav-menu">
+        <a href="activity_dashboard.html" class="nav-item">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">Dashboard</span>
+        </a>
+
+        <a href="activity_leads.html" class="nav-item">
+            <span class="nav-icon">👥</span>
+            <span class="nav-text">Leads</span>
+        </a>
+
+        <a href="activity_agenda.html" class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">Agenda</span>
+        </a>
+
+        <a href="activity_analytics.html" class="nav-item">
+            <span class="nav-icon">📈</span>
+            <span class="nav-text">Analytics</span>
+        </a>
+    </nav>
+</aside>
+
+<div class="app-shell" id="appShell">
+    <header class="top-app-bar">
+        <!-- Change this in each activity -->
+        <div class="app-title">Page Title</div>
+
+        <!-- Optional right-side info -->
+        <div class="app-bar-right"></div>
+    </header>
+
+    <main class="page-container">
+        <!-- Activity-specific content goes here -->
+    </main>
+</div>
+
+<div id="notificationToast" class="notification-toast hidden"></div>
+
+<!-- Shared behavior -->
+<script type="module" src="../../js/presentation/components/Sidebar.js"></script>
+
+<!-- Add activity-specific JS below -->
+<!-- Example: <script type="module" src="../../js/presentation/LeadsActivity.js"></script> -->
+
+</body>
+</html>
