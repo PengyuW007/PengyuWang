@@ -8,7 +8,44 @@ The application was developed as a native Web project using HTML, CSS and JavaSc
 ---
 ## Architecture
 AutoTrack follows a layered architecture in order to separate user interface logic, business rules, persistence operations, and data models.
-### Layered Architecture
+### Next.js Layered Architecture
+````
+AutoTrack-Web/
+├── public/
+│   └── images/
+├── src/
+│   ├── app/
+│   │   ├── layout.js
+│   │   ├── page.js
+│   │   ├── globals.css
+│   │   ├── leads/
+│   │   │   ├── page.js
+│   │   │   └── leads.css
+│   │   ├── leads/[id]/
+│   │   │   └── page.js
+│   │   ├── agenda/
+│   │   │   └── page.js
+│   │   └── analytics/
+│   │       └── page.js
+│   │
+│   ├── components/
+│   │   ├── Sidebar.jsx
+│   │   ├── TopBar.jsx
+│   │   ├── LeadTable.jsx
+│   │   └── LeadBriefModal.jsx
+│   │
+│   ├── domain/
+│   │   ├── objects/
+│   │   └── business/
+│   │
+│   └── data/
+│       └── persistence/
+├── package.json
+└── next.config.js
+
+````
+### Traditional Web Structure
+Traditional web project structure with separation of concerns:
 ```
 src/main/
 ├── res/
